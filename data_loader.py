@@ -69,13 +69,16 @@ def get2dDataLoader ():
     print(f'二维信号大小: {features_2d.shape}， label大小: {labels_2d.shape}')
 
     # 设置loader
-    transform = transforms.Compose(transforms.ToTensor())
+    transform = transforms.Compose([
+        transforms.ToTensor(),  # 转换为tensor
+        transforms.Normalize(mean=[0.5], std=[0.5])  # 显式归一化到[-1,1]
+    ])
     dataset = ImageDataset(features_2d, labels_2d)
     loader = DataLoader(dataset, batch_size=1, shuffle=True)
 
     return loader
 
-
+get2dDataLoader()
 
 
 

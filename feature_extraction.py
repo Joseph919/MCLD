@@ -4,15 +4,29 @@ from data_loader import *
 from modeling import *
 
 def extract_and_save_features (model, dataloader, path) :
-    # # 设置为评估模式
+    # 1. 设置为评估模式
     model.eval()
-    features = []
+
+    # 2. 创建容器
+    all_features = []
+    all_labels = []  # 如果需要保存标签的话
+
+    # 3. 正向传播
     with torch.no_grad() :
         for batch_data, batch_labels in dataloader :
-            out = model(batch_data)
-            features = features.append(features, out)
+            feature = model.extract_features(batch_data)
 
-    torch.save({'features': features, 'labels': batch_labels}, path)
+            all_features.append(feature)
+            all_labels.append(batch_labels)
+
+            print(f"处理批次 , 特征形状: {feature.shape}")
+
+    all_features = torch.cat(all_features, dim=0)
+    all_labels = torch.cat(all_labels, dim=0)
+
+    print(f"特征形状: {all_features.shape}， label形状: {all_labels.shape}")
+
+    torch.save({'all_features': all_features, 'all_labels': all_labels}, path)
     
     print('load and save success')
     return

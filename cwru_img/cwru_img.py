@@ -317,8 +317,8 @@ torch.save({
 # 5.2.1 增加通道维度
 images_train = np.expand_dims(images_train, axis = 1)
 
-features_tensor_2d = torch.from_numpy(images_train)
-labels_tensor_2d = torch.from_numpy(labeled_data_labels)
+features_tensor_2d = torch.from_numpy(images_train).float()
+labels_tensor_2d = torch.from_numpy(labeled_data_labels).long()
 
 print(f'二维信号大小: {features_tensor_2d.shape}， label大小: {labels_tensor_2d.shape}')
 
