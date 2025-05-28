@@ -4,7 +4,7 @@ from torch.utils.data import *
 from torchvision import datasets, transforms
 from PIL import Image
 
-# 2. 2d data loader
+# 2. 2d data loaderdddd
 # 2.1 class
 class ImageDataset(Dataset):
     def __init__(self, file_list, labels, transform=None):
