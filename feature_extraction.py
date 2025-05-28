@@ -19,7 +19,7 @@ def extract_and_save_features (model, dataloader, path) :
             all_features.append(feature)
             all_labels.append(batch_labels)
 
-            print(f"处理批次 , 特征形状: {feature.shape}")
+            # print(f"处理批次 , 特征形状: {feature.shape}")
 
     all_features = torch.cat(all_features, dim=0)
     all_labels = torch.cat(all_labels, dim=0)
@@ -32,10 +32,10 @@ def extract_and_save_features (model, dataloader, path) :
     return
 
 
-# cnn2d = CNN2D()
-# dataLoader2d = get2dDataLoader()
-# features2dPath = 'features/feature_2d.pt'
-# extract_and_save_features(cnn2d, dataLoader2d, features2dPath)
+cnn2d = CNN2D()
+dataLoader2d = get2dDataLoader()
+features2dPath = 'features/feature_2d.pt'
+extract_and_save_features(cnn2d, dataLoader2d, features2dPath)
 
 cnn1d = CNN1D()
 dataLoader1d = get1dDataLoader()
