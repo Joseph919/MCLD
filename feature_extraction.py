@@ -32,7 +32,12 @@ def extract_and_save_features (model, dataloader, path) :
     return
 
 
-cnn2d = CNN2D()
-dataLoader2d = get2dDataLoader()
-features2dPath = 'features/feature_2d.pt'
-extract_and_save_features(cnn2d, dataLoader2d, features2dPath)
+# cnn2d = CNN2D()
+# dataLoader2d = get2dDataLoader()
+# features2dPath = 'features/feature_2d.pt'
+# extract_and_save_features(cnn2d, dataLoader2d, features2dPath)
+
+cnn1d = CNN1D()
+dataLoader1d = get1dDataLoader()
+features1dPath = 'features/feature_1d.pt'
+extract_and_save_features(cnn1d, dataLoader1d, features1dPath)

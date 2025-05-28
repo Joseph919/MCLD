@@ -51,7 +51,7 @@ def get1dDataLoader ():
     features_1d = data['features']  # Tensor [B, C, W]
     labels_1d = data['labels']
 
-    print(f'二维信号大小: {features_1d.shape}， label大小: {labels_1d.shape}')
+    print(f'一维信号大小: {features_1d.shape}， label大小: {labels_1d.shape}')
 
     # 设置loader
     transform = transforms.Compose(transforms.ToTensor())
@@ -66,7 +66,7 @@ def get2dDataLoader ():
     features_2d = data['features']  # Tensor [B, C, H, W]
     labels_2d = data['labels']
 
-    print(f'二维信号大小: {features_2d.shape}， label大小: {labels_2d.shape}')
+    print(f'二维图像大小: {features_2d.shape}， label大小: {labels_2d.shape}')
 
     # 设置loader
     transform = transforms.Compose([
@@ -77,8 +77,6 @@ def get2dDataLoader ():
     loader = DataLoader(dataset, batch_size=1, shuffle=True)
 
     return loader
-
-get2dDataLoader()
 
 
 

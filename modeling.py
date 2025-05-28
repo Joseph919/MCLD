@@ -96,6 +96,11 @@ class CNN1D(nn.Module):
         x = self.bn3(x)
         x = torch.relu(x)
         x = self.pool3(x)
+
+        x = self.conv4(x)
+        x = self.bn4(x)
+        x = torch.relu(x)
+        x = self.pool4(x)
         # 返回卷积特征，不展平，不经过全连接层
         return x
 

@@ -301,10 +301,21 @@ num_plots_test = len(test_data)
 
 print(f"训练信号数据集大小: {labeled_data.shape}; 图像数据集大小: {images_train.shape};  增强标签集大小：{labeled_data_labels.shape}")
 
+
+
+
+
+
+
 # 5.保存1d 和 2d tensor 以及对应的labels
+
 # 5.1 保存1d
-features_tensor_1d = torch.from_numpy(labeled_data)
-labels_tensor_1d = torch.from_numpy(labeled_data_labels)
+# 5.1.1 增加通道维度
+labeled_data = np.expand_dims(labeled_data, axis = 1)
+
+# 5.1.2 转为向量
+features_tensor_1d = torch.from_numpy(labeled_data).float()
+labels_tensor_1d = torch.from_numpy(labeled_data_labels).long()
 
 print(f'一维信号大小: {features_tensor_1d.shape}， label大小: {labels_tensor_1d.shape}')
 
@@ -313,10 +324,16 @@ torch.save({
     'labels' : labels_tensor_1d,
 }, 'train_1d.pt')
 
+
+
+
+
+
 # 5.2 保存2d
 # 5.2.1 增加通道维度
 images_train = np.expand_dims(images_train, axis = 1)
 
+# 5.2.2 转为向量
 features_tensor_2d = torch.from_numpy(images_train).float()
 labels_tensor_2d = torch.from_numpy(labeled_data_labels).long()
 
