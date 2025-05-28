@@ -79,6 +79,26 @@ class CNN1D(nn.Module):
         x = torch.relu(self.fc(x))  # 全连接 + 激活
         return x
 
+    def extract_features(self, x):
+        """提取卷积特征，不经过全连接层"""
+        # 卷积 → 批归一化 → 激活 → 池化（标准流程）
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = torch.relu(x)
+        x = self.pool1(x)
+
+        x = self.conv2(x)
+        x = self.bn2(x)
+        x = torch.relu(x)
+        x = self.pool2(x)
+
+        x = self.conv3(x)
+        x = self.bn3(x)
+        x = torch.relu(x)
+        x = self.pool3(x)
+        # 返回卷积特征，不展平，不经过全连接层
+        return x
+
 
 class CNN2D(nn.Module):
     def __init__(self):
@@ -142,3 +162,22 @@ class CNN2D(nn.Module):
         x = torch.relu(self.fc(x))  # 全连接 + 激活
         return x
 
+    def extract_features(self, x):
+        """提取卷积特征，不经过全连接层"""
+        # 卷积 → 批归一化 → 激活 → 池化（标准流程）
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = torch.relu(x)
+        x = self.pool1(x)
+
+        x = self.conv2(x)
+        x = self.bn2(x)
+        x = torch.relu(x)
+        x = self.pool2(x)
+
+        x = self.conv3(x)
+        x = self.bn3(x)
+        x = torch.relu(x)
+        x = self.pool3(x)
+        # 返回卷积特征，不展平，不经过全连接层
+        return x

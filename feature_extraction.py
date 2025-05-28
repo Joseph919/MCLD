@@ -4,6 +4,7 @@ from data_loader import *
 from modeling import *
 
 def extract_and_save_features (model, dataloader, path) :
+    # # 设置为评估模式
     model.eval()
     features = []
     with torch.no_grad() :
