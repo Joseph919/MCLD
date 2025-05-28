@@ -4,6 +4,8 @@ from torch.utils.data import *
 from torchvision import datasets, transforms
 from PIL import Image
 
+# TODO Normalize input
+
 # 1. loader class
 
 # 1.1 1d data loader
