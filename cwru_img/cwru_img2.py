@@ -228,7 +228,7 @@ print(f"验证数据集大小: {data_dict['val']['data'].shape}; 验证集标签
 print(f"测试数据集大小: {data_dict['test']['data'].shape}; 测试集标签大小：{data_dict['test']['labels'].shape}")
 
 # 计算时频图像：训练集、验证集、测试集
-scale = 128
+scale = 129
 train_signal_data = data_dict['train']['data']
 train_images_data = calculate_timefreq_features(data=train_signal_data, totalscal=scale)
 
