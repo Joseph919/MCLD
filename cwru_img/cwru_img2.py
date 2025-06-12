@@ -154,6 +154,11 @@ def train_model(model1d, model2d, fusion_model, train_loader, val_loader, criter
             best_val_acc = val_accuracy
             best_model_state = fusion_model.state_dict()
             print(f"新的最佳模型保存，验证集准确率: {best_val_acc * 100:.2f}%")
+            torch.save({
+                'model1d_state_dict': model1d.state_dict(),
+                'model2d_state_dict': model2d.state_dict(),
+                'fusion_model_state_dict': best_model_state,
+            }, 'model_checkpoint.pth')
 
     fusion_model.load_state_dict(best_model_state)
     print(f"训练完成，最佳验证集准确率: {best_val_acc * 100:.2f}%")
