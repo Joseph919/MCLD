@@ -1,4 +1,4 @@
-# Multimodal Contrastive Learning for Complex System Anomaly Detection
+# Multimodal Contrastive Learning for Complex System Anomaly Detection (MCLD)
 
 ## Overview
 
