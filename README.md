@@ -96,13 +96,6 @@ This methodology is particularly suitable for:
   - Matplotlib (for visualization)
   - Scikit-learn (for metrics)
 
-## Citation
-
-
-## License
-
-[Your chosen license - MIT, Apache 2.0, etc.]
-
 ## Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
